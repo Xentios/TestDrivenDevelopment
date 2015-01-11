@@ -3,6 +3,7 @@ package mover;
 import java.util.Date;
 
 public class Rental {
+	private String id;
 	private Movie movie;
 	private User user;
 	private Date rentdate;
@@ -34,6 +35,13 @@ public class Rental {
 	}
 	public int getPrice(){
 		return this.price;
+	}
+
+	public String getID() {
+		return this.id;
+	}
+	public void setID(String id){
+		this.id=id;
 	}
 }
 
