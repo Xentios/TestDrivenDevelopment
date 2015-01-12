@@ -30,5 +30,19 @@ public class Movie {
 	public Date getDate() {		
 		return this.date;
 	}
+	
+	@Override
+	public boolean equals(Object obj){
+		 if (!(obj instanceof Movie))
+	            return false;
+	        if (obj == this)
+	            return true;
+
+	        Movie rhs = (Movie) obj;
+	        if (rhs.getName().equals(this.getName()))
+	        	return true;
+	        			
+		 return false;
+	}
 
 }

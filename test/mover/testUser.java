@@ -20,5 +20,15 @@ public class testUser {
 		
 		assertEquals("Customer",user.getName());		
 	}
+	
+	@Test
+	public void testEquals(){
+		User x=new User();
+		User y=new User();
+		x.setName("Harry");
+		y.setName("Harry");
+		
+		assertEquals(x,y);		
+	}
 
 }

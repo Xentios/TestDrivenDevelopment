@@ -2,6 +2,7 @@ package mover;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,8 +11,16 @@ public class testStore {
 	DatabaseConnectorInterface dcon;
 	@Before
 	public void setUp(){		
-		dcon=new DummyDB();
+		dcon=new DB();
+		dcon.connect();
+		dcon.createDatabase();
 		store=new Store(dcon);
+		
+	}
+	@After
+	public void tearDown(){
+		dcon.destroyDatabase();
+		dcon.close();
 	}
 
 	//Start of Movie Tests//////////////////////////////////////////////////////
@@ -108,7 +117,7 @@ public class testStore {
 	@Test
 	public void testRentMovieFail(){
 		Rental rental=testHelpers.createRental("Unknown Movie","By unknown user");
-		assertEquals("",store.rent(rental));		
+		assertNotEquals("",store.getRental("randomdid"));		
 	}
 
 

@@ -10,6 +10,9 @@ public interface DatabaseConnectorInterface {
 	
 	
 	public boolean connect();
+	public void close();
+	public void createDatabase();
+	public void destroyDatabase();
 	
 	public void writeUser(User user);
 	public void writeMovie(Movie movie);

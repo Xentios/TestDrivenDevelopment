@@ -5,8 +5,7 @@ public class Store {
 	private DatabaseConnectorInterface dcon;
 
 	public Store(DatabaseConnectorInterface dcon) {
-		this.dcon=dcon;
-		dcon.connect();
+		this.dcon=dcon;		
 	}
 
 	public void registerMovie(Movie movie) {		

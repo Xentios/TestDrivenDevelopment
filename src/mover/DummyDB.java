@@ -13,6 +13,14 @@ public class DummyDB implements DatabaseConnectorInterface {
 	public boolean connect() {	
 		return true;
 	}
+	@Override
+	public void createDatabase() {
+		
+	}
+	@Override
+	public void destroyDatabase() {
+		
+	}
 
 	@Override
 	public void writeUser(User user) {
@@ -27,8 +35,7 @@ public class DummyDB implements DatabaseConnectorInterface {
 	@Override
 	public String writeRental(Rental rental)  {
 		User user=rental.getUser();
-		Movie movie=rental.getMovie();
-		System.out.println(movie.getName());
+		Movie movie=rental.getMovie();		
 		if (userList.containsKey(user.getName()) && movieList.containsKey(movie.getName())){
 			rental.setID(getNewId());//Gets a random new id.
 			rentList.put(rental.getID(), rental);
@@ -88,6 +95,14 @@ public class DummyDB implements DatabaseConnectorInterface {
 	public boolean isMovieRented(String movie) {
 		return rentList.containsKey(movie);
 	}
+	@Override
+	public void close() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+	
 	
 	
 }
